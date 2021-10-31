@@ -20,6 +20,7 @@
   "homepage": "https://github.com/CapriciousRebel/uidai-hack-back#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "crypto-js": "^4.1.1",
     "dotenv": "^10.0.0",
     "eslint": "^8.1.0",
     "express": "^4.17.1",

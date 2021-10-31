@@ -41,4 +41,19 @@ export const generateOTP = async (aadhar, captchaTxnId, captchaValue) => {
 	return response.data;
 };
 
-export const test = () => { };
+export const fetchEKyc = async (txnNumber, otp, aadhar) => {
+	const url = process.env.fetchEKycURL;
+	const headers = {
+		'Content-Type': 'application/json',
+	};
+	const shareCode = crypto.randomInt(1000, 9999);
+	const data = {
+		uid: aadhar,
+		otp,
+		shareCode,
+		txnNumber,
+	};
+	const response = await axios.post(url, data, { headers });
+	console.log(response.data);
+	return response.data;
+};
