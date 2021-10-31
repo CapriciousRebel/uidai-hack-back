@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 /* Routes */
-app.get('/', homeRouter);
+app.use('/', homeRouter);
 app.use('*', (req, res) => res.status(404));
 
 app.listen(port, () => {
