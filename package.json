@@ -20,12 +20,13 @@
   "homepage": "https://github.com/CapriciousRebel/uidai-hack-back#readme",
   "dependencies": {
     "axios": "^0.24.0",
-    "crypto-js": "^4.1.1",
     "dotenv": "^10.0.0",
     "eslint": "^8.1.0",
     "express": "^4.17.1",
+    "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.14",
+    "unzipper": "^0.10.11",
     "uuidv4": "^6.2.12"
   },
   "devDependencies": {

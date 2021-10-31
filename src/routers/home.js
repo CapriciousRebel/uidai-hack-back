@@ -6,6 +6,8 @@ const router = express.Router();
 router.get('/', controller.home);
 router.get('/captcha', controller.generateCaptcha);
 router.post('/otp', controller.generateOTP);
-router.get('/qrcode', controller.fetchEKyc);
+router.post('/qrcode', controller.fetchEKyc);
+
+router.post('/xml', controller.sendXML);
 
 export default router;

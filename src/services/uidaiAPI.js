@@ -41,12 +41,16 @@ export const generateOTP = async (aadhar, captchaTxnId, captchaValue) => {
 	return response.data;
 };
 
+/**
+ * fetch the xml and password for the generated xml file
+ * @returns the xml(base64 encoded string) and password for the generated xml file
+ */
 export const fetchEKyc = async (txnNumber, otp, aadhar) => {
 	const url = process.env.fetchEKycURL;
 	const headers = {
 		'Content-Type': 'application/json',
 	};
-	const shareCode = crypto.randomInt(1000, 9999);
+	const shareCode = Math.floor(1000 + Math.random() * 9000).toString();
 	const data = {
 		uid: aadhar,
 		otp,
@@ -54,6 +58,15 @@ export const fetchEKyc = async (txnNumber, otp, aadhar) => {
 		txnNumber,
 	};
 	const response = await axios.post(url, data, { headers });
-	console.log(response.data);
-	return response.data;
+	if (response.data.status === 'Success') {
+		const xmlData = {
+			xml: response.data.eKycXML,
+			pwd: shareCode,
+		};
+
+		return xmlData;
+	}
+	return {
+		success: 0,
+	};
 };
